@@ -1,0 +1,42 @@
+//============================================================================
+// Name        : Task.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+
+struct TimeType {
+	int hour;
+	int min;
+};
+
+int toMinutes(TimeType timeA);
+//TimeType toTime(int minutes);
+//TimeType timeDifference(TimeType timeB, TimeType timeC);
+//TimeType dynamicTimes();
+
+int toMinutes(TimeType timeA)
+{
+	return timeA.hour*60+timeA.min;
+}
+
+int main()
+{
+	int minutes;
+	TimeType timeA = { 10, 15 };
+	minutes = toMinutes(timeA);
+	cout << minutes << " minutes" << endl; // Should write: 615 minutes
+	return 0;
+
+
+//int minutes = 124;
+//TimeType time = toTime(minutes);
+//
+//TimeType timeB = { 10, 30 }, timeC = { 13, 20 }, difference;
+//difference = timeDifference(timeB, timeC);
+//TimeType maxDiff = dynamicTimes();
+}

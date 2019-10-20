@@ -1,0 +1,70 @@
+//============================================================================
+// Name        : Task.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>	 //for input and output
+#include <iomanip>   // for setfill()and setw(2)
+#include <vector>	 // for using vectors
+#include <ctime>	 // for using time();
+#include <cstdlib>	 // for using srand() and rand();
+#include <String>
+using namespace std;
+
+string WinerFind(int ComputerChoice,int UserChoice);
+
+enum RSP
+		{
+       	Stone, Scissor, Paper
+		};
+
+int main() {
+
+
+        int ComputerChoice, UserChoice;
+        int  winner;
+
+
+
+       // do
+        //{
+
+
+
+        cout<<"Please enter your valid choice";
+        cin>>UserChoice;
+
+        ComputerChoice = rand%4;
+        cout<<"Computer choice is: "<<ComputerChoice;
+
+        winner=WinerFind(ComputerChoice,UserChoice);
+
+        //}while(winner.equals("Playagain"));
+
+       cout<<"The Winner is" <<winner;
+
+        return 0;
+    }
+
+    string  WinerFind(int ComputerChoice, int UserChoice)
+    {
+        if (ComputerChoice==Stone && UserChoice==Scissor )
+                 return "Computer won!";
+        else if (ComputerChoice==Stone && UserChoice==Paper )
+                 return "You won!";
+        else if (ComputerChoice==Scissor && UserChoice==Stone )
+                 return "You won!";
+        else if (ComputerChoice==Scissor && UserChoice==Paper )
+                 return "Computer won!";
+        else if (ComputerChoice==Paper && UserChoice==Scissor )
+                return "You won!";
+        else if (ComputerChoice==Paper && UserChoice==Stone )
+                 return "Computer won!";
+        else
+                return "Equal!";
+    }
+
+

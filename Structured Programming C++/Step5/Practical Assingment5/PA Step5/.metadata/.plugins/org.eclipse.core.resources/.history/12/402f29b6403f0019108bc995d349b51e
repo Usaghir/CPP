@@ -1,0 +1,95 @@
+//============================================================================
+// Name        : Task.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include <iomanip>
+#include <vector>
+using namespace std;
+
+struct TimeType {
+	int hour;
+	int min;
+};
+
+int toMinutes(TimeType timeA);
+TimeType toTime(int minutes);
+TimeType timeDifference(TimeType timeB, TimeType timeC);
+TimeType dynamicTimes();
+
+int toMinutes(TimeType timeA)
+{
+	return timeA.hour*60+timeA.min;
+}
+
+TimeType toTime(int minutes)
+{
+	TimeType time;
+	time.hour = minutes/60;
+	time.min = minutes%60;
+	return time;
+}
+
+TimeType timeDifference(TimeType timeB, TimeType timeC)
+{
+	TimeType diff;
+	int diffMin;
+	int diffHour=0;
+	int tolMinB;
+	int totMinC;
+	tolMinB = toMinutes(timeB);
+	totMinC = toMinutes(timeC);
+	diffMin = totMinC-tolMinB;
+	diffHour = diffMin/60;
+	diffMin%=60;
+	diff.hour=diffHour;
+	diff.min=diffMin;
+
+	return diff;
+
+//	diff.hour=timeC.hour-timeB.hour;
+//	diff.min=timeC.min-timeB.min;
+	return diff;
+}
+
+TimeType dynamicTimes()
+{
+	vector<200> times;
+}
+int main()
+{
+	int minutes;
+	TimeType timeA = { 10, 15 };
+	minutes = toMinutes(timeA);
+	cout << minutes << " minutes" << endl; // Should write: 615 minutes
+
+
+
+minutes = 124;
+TimeType time = toTime(minutes);
+
+
+	cout <<setfill('0') <<setw(2);
+    cout <<time.hour;
+    cout<<":";
+    cout <<setfill('0') <<setw(2);
+    cout <<time.min<<endl;
+
+
+TimeType timeB = { 10, 30 }, timeC = { 13, 20 }, difference;
+difference = timeDifference(timeB, timeC);
+
+cout <<setfill('0') <<setw(2);
+    cout <<difference.hour;
+    cout<<":";
+    cout <<setfill('0') <<setw(2);
+    cout <<difference.min<<endl;
+
+
+TimeType maxDiff = dynamicTimes();
+	return 0;
+}
